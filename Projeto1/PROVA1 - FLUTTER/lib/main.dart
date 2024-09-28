@@ -8,7 +8,7 @@ class BancoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Banco do Felipe',
+      title: 'ROLÂNDIA BANK',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -32,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Banco do Felipe"),
+        title: const Text("ROLÂNDIA BANK"),
         backgroundColor: Colors.blue,
       ),
       body: Column(
@@ -57,7 +57,7 @@ class _DashboardState extends State<Dashboard> {
                     context, "Contatos", Icons.contacts, Colors.blue,
                     ListaContatos(contatos: _contatos)), // Passa a lista de contatos
                 _buildDashboardCard(
-                    context, "Transferências", Icons.monetization_on, Colors.green,
+                    context, "Transferências", Icons.currency_exchange, Colors.green,
                     ListaTransferencias(transferencias: _transferencias)), // Passa a lista de transferências
               ],
             ),
@@ -138,7 +138,7 @@ class _ListaContatosState extends State<ListaContatos> {
                   Text('CPF: ${contato.cpf}'),
                 ],
               ),
-              isThreeLine: true, // Permite mostrar múltiplas linhas no subtitle
+              isThreeLine: true, 
             ),
           );
         },
@@ -201,7 +201,7 @@ class _ListaContatosState extends State<ListaContatos> {
                       email: email,
                       cpf: cpf);
                   setState(() {
-                    widget.contatos.add(novoContato); // Adiciona o contato à lista
+                    widget.contatos.add(novoContato); // Adiciona contato
                   });
                   Navigator.pop(context);
                 }
@@ -256,7 +256,7 @@ class _ListaTransferenciasState extends State<ListaTransferencias> {
         itemBuilder: (context, indice) {
           final transferencia = widget.transferencias[indice];
           return ListTile(
-            leading: const Icon(Icons.monetization_on, color: Colors.green),
+            leading: const Icon(Icons.currency_exchange, color: Colors.green),
             title: Text('R\$ ${transferencia.valor.toString().replaceAll('.', ',')}'),
             subtitle: Text('Conta: ${transferencia.numeroConta}'),
           );
@@ -304,7 +304,7 @@ class _ListaTransferenciasState extends State<ListaTransferencias> {
                   final novaTransferencia =
                       Transferencia(valor, numeroConta);
                   setState(() {
-                    widget.transferencias.add(novaTransferencia); // Adiciona a transferência à lista
+                    widget.transferencias.add(novaTransferencia); // Adiciona uma tasrnferência
                   });
                   Navigator.pop(context);
                 }
